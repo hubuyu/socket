@@ -52,7 +52,8 @@ int main()
 			    printf("accept fail !\r\n");
 				    return -1;
 		}
-		printf("accept ok!\r\nServer start get connect from %#x : %#x\r\n",ntohl(c_add.sin_addr.s_addr),ntohs(c_add.sin_port));
+		printf("accept ok!\r\nServer start get connect from %#x : %#x\r\n",
+				ntohl(c_add.sin_addr.s_addr),ntohs(c_add.sin_port));
 
 
 		printf("write ok!\r\n");
@@ -65,8 +66,7 @@ int main()
 			memset(buffer,0,sizeof(buffer));
 			int len = recv(nfp, buffer, sizeof(buffer),0);
 			printf("recv ok!\n");
-//			if(strcmp(buffer,"exit\n")==0)
-//				break;
+
 			if(strcmp(buffer,"exit")==0)// only this useful
 				break;
 			fputs(buffer, stdout);
